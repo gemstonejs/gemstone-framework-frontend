@@ -102,7 +102,7 @@ export default class Gemstone {
         /*  default options  */
         options = Object.assign({
             app:    "example",
-            config: { env: "development", tag: "" },
+            config: { env: "development", tag: "", hash, "", time: "" },
             ui:     () => [ "root", {}, "visible" ],
             sv:     (url, cid) => {}
         }, options)
@@ -113,7 +113,7 @@ export default class Gemstone {
             /* eslint no-console: off */
             console.info(
                 `Gemstone Application (app: ${options.app}, env: ${options.config.env}, ` +
-                `tag: "${options.config.tag}", hash: ${options.config.hash})\n` +
+                `tag: "${options.config.tag}", hash: ${options.config.hash}, time: ${options.config.time})\n` +
                 "Notice: You are driving Gemstone in development mode. " +
                 "Make sure to turn on production mode when deploying for production.\n" +
                 "Hint: See the Gemstone documentation under https://gemstonejs.com/docs for help.")
@@ -191,7 +191,7 @@ export default class Gemstone {
 
         /*  provide a ComponentJS root model  */
         root.model({
-            "gsConfig": { value: options.config, valid: "{ env: string, tag: string, hash: string }" },
+            "gsConfig": { value: options.config, valid: "{ env: string, tag: string, hash: string, time: string }" },
             "gsCID":    { value: cid,            valid: "string" },
             "gsLang":   { value: lang,           valid: "string" },
             "gsTheme":  { value: theme,          valid: "string" },
