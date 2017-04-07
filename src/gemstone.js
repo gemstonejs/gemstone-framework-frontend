@@ -8,6 +8,8 @@
  *  The external dependencies
  */
 
+/* eslint import/first: off */
+
 import                                "normalize.css"
 import                                "animate.css"
 
