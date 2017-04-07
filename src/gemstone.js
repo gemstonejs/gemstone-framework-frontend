@@ -102,7 +102,7 @@ export default class Gemstone {
         /*  default options  */
         options = Object.assign({
             app:    "example",
-            config: { env: "development", tag: "", hash, "", time: "" },
+            config: { env: "development", tag: "", hash: "", time: "" },
             ui:     () => [ "root", {}, "visible" ],
             sv:     (url, cid) => {}
         }, options)
