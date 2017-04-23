@@ -38,12 +38,24 @@ module.exports = function (opts) {
         },
         module: {
             rules: [
+                {   test: /\.js$/,
+                    enforce: "pre",
+                    use: {
+                        loader: require.resolve("./webpack.loader-nostrict")
+                    }
+                },
+                {   test: /\.js$/,
+                    enforce: "post",
+                    use: {
+                        loader: require.resolve("./webpack.loader-nostrict")
+                    }
+                },
                 {
                     test: (path) => {
                         return path.match(/\/(?:node_modules|bower_components)\//)
                     },
                     rules: [
-                        {   test: /\.js/,
+                        {   test: /\.js$/,
                             rules: [ { parser: { amd: false, commonjs: true } } ]
                         },
                         {   test: /\.css$/,
