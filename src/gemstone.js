@@ -106,7 +106,7 @@ export default class Gemstone {
             app:    "example",
             config: { env: "development", tag: "", hash: "", time: "" },
             ui:     () => [ "root", {}, "visible" ],
-            sv:     (url, cid) => {}
+            sv:     (url, cid) => ({})
         }, options)
         latching.hook("boot-options", "pass", options)
 
@@ -258,7 +258,7 @@ export default class Gemstone {
         /*  setup service layer  */
         let sv = options.sv(url, cid)
         root.property("sv", sv)
-        if (typeof sv.boot === "function")
+        if (typeof sv === "object" && typeof sv.boot === "function")
             await sv.boot()
         latching.hook("boot-sv", "pass", sv)
 
@@ -366,7 +366,7 @@ export default class Gemstone {
 
         /*  shutdown service layer  */
         let sv = root.property("sv")
-        if (typeof sv.shutdown === "function")
+        if (typeof sv === "object" && typeof sv.shutdown === "function")
             await sv.shutdown()
 
         /*  shutdown component tree  */
