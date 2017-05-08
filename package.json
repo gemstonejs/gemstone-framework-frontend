@@ -29,7 +29,7 @@
         "eslint-plugin-node":             "~4.2.2",
         "babel-eslint":                   "~7.2.3",
 
-        "webpack":                        "~2.5.0",
+        "webpack":                        "~2.5.1",
         "extract-text-webpack-plugin":    "~2.1.0",
         "expose-loader":                  "~0.7.3",
         "style-loader":                   "~0.17.0",
@@ -51,7 +51,7 @@
         "jquery-stage":                   "~1.1.9",
         "jquery.transit":                 "~0.9.12",
         "componentjs":                    "~1.5.0",
-        "componentjs-mvc":                "~0.9.8",
+        "componentjs-mvc":                "~0.9.9",
         "vue":                            "~2.3.2",
         "vue-animate":                    "~0.0.4",
         "vue-params":                     "~0.9.2",
