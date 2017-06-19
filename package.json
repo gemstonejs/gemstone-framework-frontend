@@ -48,7 +48,7 @@
         "animate.css":                    "~3.5.2",
         "urijs":                          "~1.18.10",
         "jquery":                         "~3.2.1",
-        "jquery-stage":                   "~1.1.9",
+        "jquery-stage":                   "~1.1.10",
         "jquery.transit":                 "~0.9.12",
         "componentjs":                    "~1.5.0",
         "componentjs-mvc":                "~0.9.9",
@@ -64,7 +64,7 @@
         "store":                          "~2.0.4",
         "axios":                          "~0.16.2",
         "pure-uuid":                      "~1.4.6",
-        "sprintfjs":                      "~1.2.5",
+        "sprintfjs":                      "~1.2.6",
         "numeral":                        "~2.0.6"
     },
     "dependencies" : {
