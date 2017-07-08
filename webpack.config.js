@@ -20,7 +20,8 @@ module.exports = function (opts) {
                 jQuery:      "jquery",
                 ComponentJS: "componentjs",
                 Vue:         "vue"
-            })
+            }),
+            new webpack.optimize.ModuleConcatenationPlugin()
         ],
         context: process.cwd(),
         entry: {
