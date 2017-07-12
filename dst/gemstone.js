@@ -203,7 +203,7 @@ var W=n(200),X=n(201),K=n(202);t.Buffer=i,t.SlowBuffer=g,t.INSPECT_MAX_BYTES=50,
 */
 !function(t,n,r){"function"==typeof define&&void 0!==define.amd?define("VueParams",function(){return r()}):"object"==typeof e&&"object"==typeof e.exports?e.exports=r():t.VueParams=r()}(this,0,function(){return{install:function(e){var t={},n=[];Object.defineProperty(e,"params",{enumerable:!0,configurable:!1,value:{},writeable:!1});var r=e.prototype._init,o=e.prototype._destroy;e.prototype._init=function(){return n.push(this),r.apply(this,arguments)},e.prototype._destroy=function(){return n=n.filter(function(e){return e!==this}),o.apply(this,arguments)},e.paramsCreate=function(r){if("string"==typeof r&&(r=[r]),!("object"==typeof r&&r instanceof Array))throw new Error("invalid params parameter (expected single string or array of strings)");r.forEach(function(r){Object.defineProperty(e.params,r,{enumerable:!0,configurable:!0,get:function(){return t[r]},set:function(e){t[r]!==e&&(t[r]=e,n.forEach(function(e){e.$forceUpdate()}))}})})},e.paramsDestroy=function(n){if("string"==typeof n&&(n=[n]),!("object"==typeof n&&n instanceof Array))throw new Error("invalid params parameter (expected single string or array of strings)");n.forEach(function(n){delete e.params[n],delete t[n]})}}}})},function(e,t){/*!
 **  VueI18Next -- Vue Plugin for I18Next Integration
-**  Copyright (c) 2016 Ralf S. Engelschall <rse@engelschall.com>
+**  Copyright (c) 2016-2017 Ralf S. Engelschall <rse@engelschall.com>
 **
 **  Permission is hereby granted, free of charge, to any person obtaining
 **  a copy of this software and associated documentation files (the
