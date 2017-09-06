@@ -264,8 +264,8 @@ export default class Gemstone {
 
         /*  optionally open ComponentJS debugger  */
         if (options.config.env === "development") {
-            let search = url.search()
-            let csdebugEnabled = search === "debug" || queryInfo.debug === true
+            let hash = url.hash()
+            let csdebugEnabled = (hash === "#debug" || queryInfo.debug !== undefined)
             cs.debug(csdebugEnabled ? 9 : 0)
             cs.debug_window({
                 enable:    csdebugEnabled,
