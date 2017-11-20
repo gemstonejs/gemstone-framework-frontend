@@ -241,17 +241,20 @@ export default class Gemstone {
                 persistParam("lang", lang)
             }
         })
+        i18next.addResourceBundles = (id, bundles, deep = true, overwrite = true) => {
+            if (typeof bundles !== "object")
+                throw new Error("invalid I18N resource bundles object")
+            Object.keys(bundles).forEach((lng) => {
+                i18next.addResourceBundle(lng, id, bundles[lng], deep, overwrite)
+            })
+        }
         mvc.latch("mask:vue-options", ({ id, options }) => {
             /*  set mask-local i18Next namespace for vue-i18next  */
             options.i18nextNamespace = id
 
             /*  inject language translation  */
             i18next.addResourceBundle("en", id, {}, true, true)
-            if (typeof options.i18n === "object") {
-                Object.keys(options.i18n).forEach((lng) => {
-                    i18next.addResourceBundle(lng, id, options.i18n[lng], true, true)
-                })
-            }
+            i18next.addResourceBundles(id, options.i18n)
         })
         latching.hook("boot-i18n", "none")
 
