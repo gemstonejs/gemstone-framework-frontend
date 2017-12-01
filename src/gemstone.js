@@ -217,11 +217,16 @@ export default class Gemstone {
         latching.hook("boot-dom-ready", "none")
 
         /*  configure I18Next/Vue for locale translations  */
-        i18next.init({
-            lng:         lang,
-            fallbackLng: "en",
-            defaultNS:   "global",
-            fallbackNS:  "global"
+        await new Promise((resolve, reject) => {
+            i18next.init({
+                lng:         lang,
+                fallbackLng: "en",
+                defaultNS:   "global",
+                fallbackNS:  "global"
+            }, (err) => {
+                if (err) reject(err)
+                else     resolve()
+            })
         })
         i18next.addResourceBundle(lang, "global", {}, true, true)
         i18next.addResourceBundle("en", "global", {}, true, true)
@@ -231,6 +236,9 @@ export default class Gemstone {
             name: "gsLang", boot: true, func: (ev, lang, langOld) => {
                 /*  set global i18Next language for vue-i18next  */
                 vue.params.i18nextLanguage = lang
+
+                /*  set global i18Next language for itself  */
+                i18next.changeLanguage(lang, () => { /* NOP */ })
 
                 /*  provide language on DOM  */
                 $("body")
