@@ -262,7 +262,8 @@ export default class Gemstone {
 
             /*  inject language translation  */
             i18next.addResourceBundle("en", id, {}, true, true)
-            i18next.addResourceBundles(id, options.i18n)
+            if (typeof options.i18n === "object")
+                i18next.addResourceBundles(id, options.i18n)
         })
         latching.hook("boot-i18n", "none")
 
