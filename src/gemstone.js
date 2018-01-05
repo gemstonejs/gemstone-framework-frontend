@@ -118,7 +118,7 @@ export default class Gemstone {
                 `tag: "${options.config.tag}", hash: ${options.config.hash}, time: ${options.config.time})\n` +
                 "Notice: You are driving Gemstone in development mode. " +
                 "Make sure to turn on production mode when deploying for production.\n" +
-                "Hint: See the Gemstone documentation under https://gemstonejs.com/docs for help.")
+                "Hint: See the Gemstone documentation under https://gemstonejs.com/ for help.")
         }
 
         /*  sanity check environment  */
