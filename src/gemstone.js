@@ -351,8 +351,8 @@ export default class Gemstone {
             name: "gsTheme", boot: true, func: (ev, themeNew, themeOld) => {
                 /*  store information in DOM  */
                 $("body")
-                    .removeClass(`gs-theme-${themeOld}`)
-                    .addClass(`gs-theme-${themeNew}`)
+                    .removeClass(`gs-th-ctx-${themeOld}`)
+                    .addClass(`gs-th-ctx-${themeNew}`)
 
                 /*  persist value  */
                 persistParam("theme", themeNew)
