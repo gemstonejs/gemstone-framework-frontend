@@ -10,6 +10,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = function (opts) {
     let config = {
+        mode: "production",
         plugins: [
             new ExtractTextPlugin({
                 filename:    "[name].css",
@@ -20,8 +21,7 @@ module.exports = function (opts) {
                 jQuery:      "jquery",
                 ComponentJS: "componentjs",
                 Vue:         "vue"
-            }),
-            new webpack.optimize.ModuleConcatenationPlugin()
+            })
         ],
         context: process.cwd(),
         entry: {
@@ -102,6 +102,9 @@ module.exports = function (opts) {
             filename:      "[name].js",
             /* library:       "Gemstone", */
             libraryTarget: "commonjs2"
+        },
+        performance: {
+            hints: false
         }
     }
     return config
