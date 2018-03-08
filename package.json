@@ -80,7 +80,7 @@
         "build:dev":                      "npm run lint && npm run bundle:dev",
         "build:prod":                     "npm run lint && npm run bundle:prod",
         "lint":                           "eslint --config eslint.yaml src/*.js",
-        "bundle:dev":                     "webpack --mode=production --env=development --define=process.env.NODE_ENV=development --optimize-minimize",
-        "bundle:prod":                    "webpack --mode=production --env=production  --define=process.env.NODE_ENV=production  --optimize-minimize"
+        "bundle:dev":                     "webpack --mode=production --env=development --define=process.env.NODE_ENV=\\\"development\\\" --optimize-minimize",
+        "bundle:prod":                    "webpack --mode=production --env=production  --define=process.env.NODE_ENV=\\\"production\\\"  --optimize-minimize"
     }
 }
