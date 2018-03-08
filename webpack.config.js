@@ -8,9 +8,9 @@ const path              = require("path")
 const webpack           = require("webpack")
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
-module.exports = function (opts) {
+module.exports = function (mode) {
     let config = {
-        mode: "production",
+        mode: mode,
         plugins: [
             new ExtractTextPlugin({
                 filename:    "[name].css",
@@ -87,6 +87,14 @@ module.exports = function (opts) {
                     use: [{ loader: "expose-loader", options: "ComponentJS" }]
                 },
                 {
+                    test: require.resolve("componentjs/component.plugin.testdrive.js"),
+                    use: mode === "production" ? "null-loader" : "noop-loader"
+                },
+                {
+                    test: require.resolve("componentjs/component.plugin.debugger.js"),
+                    use: mode === "production" ? "null-loader" : "noop-loader"
+                },
+                {
                     test: require.resolve("vue"),
                     use: [{ loader: "expose-loader", options: "Vue" }]
                 },
@@ -99,8 +107,7 @@ module.exports = function (opts) {
         target: "web",
         output: {
             path:          path.resolve("dst"),
-            filename:      "[name].js",
-            /* library:       "Gemstone", */
+            filename:      mode === "production" ? "[name].js" : "[name].dev.js",
             libraryTarget: "commonjs2"
         },
         performance: {
