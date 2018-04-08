@@ -10,7 +10,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = function (mode) {
     let config = {
-        mode: mode,
+        mode: "production",
         plugins: [
             new ExtractTextPlugin({
                 filename:    "[name].css",
