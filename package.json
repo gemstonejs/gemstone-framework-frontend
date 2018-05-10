@@ -74,6 +74,7 @@
         "node":                           ">=6.0.0"
     },
     "scripts": {
+        "prepublishOnly":                 "npm run build",
         "build":                          "npm run build:dev && npm run build:prod",
         "build:dev":                      "npm run lint && npm run bundle:dev",
         "build:prod":                     "npm run lint && npm run bundle:prod",
