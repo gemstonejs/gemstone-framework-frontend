@@ -72,13 +72,13 @@ import numeral from                   "numeral"
 
 import Latching from "latching"
 
-let latching = new Latching()
+const latching = new Latching()
 
 export default class Gemstone {
     /*  latching integration  */
-    at      (...args) { return latching.at(...args) }
-    latch   (...args) { return latching.latch(...args) }
-    unlatch (...args) { return latching.unlatch(...args) }
+    static at      (...args) { return latching.at(...args) }
+    static latch   (...args) { return latching.latch(...args) }
+    static unlatch (...args) { return latching.unlatch(...args) }
 
     /*  convenience short-hands properties  */
     static get $         () { return $ }
