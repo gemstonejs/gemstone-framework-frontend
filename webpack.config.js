@@ -74,11 +74,19 @@ module.exports = function (mode) {
                         loader: "babel-loader",
                         options: {
                             presets: [
-                                [ "env", { targets: "last 2 versions" } ],
-                                "stage-3",
-                                "stage-2"
+                                [ "@babel/preset-env", {
+                                    "targets": {
+                                        "browsers": "last 2 versions, > 1%, ie 11"
+                                    }
+                                } ]
                             ],
-                            plugins: [ "transform-runtime" ]
+                            plugins: [
+                                [ "@babel/plugin-transform-runtime", {
+                                    "corejs":      2,
+                                    "helpers":     true,
+                                    "regenerator": true
+                                } ]
+                            ]
                         }
                     }
                 },
