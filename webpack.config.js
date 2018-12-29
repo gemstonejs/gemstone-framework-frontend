@@ -68,6 +68,14 @@ module.exports = function (mode) {
                     ]
                 },
                 {
+                    test: /\.css$/,
+                    exclude: /\/(?:node_modules|bower_components)\//,
+                    use: ExtractTextPlugin.extract({
+                        fallback: require.resolve("style-loader"),
+                        use: require.resolve("css-loader")
+                    })
+                },
+                {
                     test: /\.js$/,
                     exclude: /\/(?:node_modules|bower_components)\//,
                     use: {

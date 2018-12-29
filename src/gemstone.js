@@ -13,6 +13,8 @@
 import                                "normalize.css"
 import                                "animate.css"
 
+import                                "./gemstone.css"
+
 export { default as $ } from          "jquery"
 import $ from                         "jquery"
 import                                "jquery-stage"
