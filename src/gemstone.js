@@ -129,15 +129,15 @@ export default class Gemstone {
 
         /*  bootstrap component system  */
         cs.bootstrap()
-        let root = cs("/")
+        const root = cs("/")
         mvc.ComponentJS = cs
         mvc.jQuery      = $
         mvc.Plugin()
         latching.hook("boot-componentjs", "pass", root)
 
         /*  determine current URL query info  */
-        let url = new uri()
-        let queryInfo = url.query(true)
+        const url = new uri()
+        const queryInfo = url.query(true)
         latching.hook("boot-url", "pass", url)
 
         /*  determine a persistent and overridable parameter  */
@@ -160,14 +160,14 @@ export default class Gemstone {
         }
 
         /*  determine client id  */
-        let cid = determineParam("cid", () => {
+        const cid = determineParam("cid", () => {
             /* eslint new-cap: off */
             return (new uuid(1).format())
         })
         latching.hook("boot-cid", "pass", cid)
 
         /*  determine language  */
-        let lang = determineParam("lang", () => {
+        const lang = determineParam("lang", () => {
             var langs = []
             if (navigator.languages)
                 for (var i = 0; i < navigator.languages.length; i++)
@@ -188,7 +188,7 @@ export default class Gemstone {
         latching.hook("boot-lang", "pass", lang)
 
         /*  determine theme  */
-        let theme = determineParam("theme", () => {
+        const theme = determineParam("theme", () => {
             return "default"
         })
         latching.hook("boot-theme", "pass", theme)
@@ -270,7 +270,7 @@ export default class Gemstone {
         latching.hook("boot-i18n", "none")
 
         /*  setup service layer  */
-        let sv = options.sv(url, cid)
+        const sv = options.sv(url, cid)
         root.property("sv", sv)
         if (typeof sv === "object" && typeof sv.boot === "function")
             await sv.boot()
@@ -278,8 +278,8 @@ export default class Gemstone {
 
         /*  optionally open ComponentJS debugger  */
         if (options.config.env === "development") {
-            let hash = url.hash()
-            let csdebugEnabled = (hash === "#debug" || queryInfo.debug !== undefined)
+            const hash = url.hash()
+            const csdebugEnabled = (hash === "#debug" || queryInfo.debug !== undefined)
             cs.debug(csdebugEnabled ? 9 : 0)
             cs.debug_window({
                 enable:    csdebugEnabled,
@@ -366,7 +366,7 @@ export default class Gemstone {
         latching.hook("boot-socket", "none")
 
         /*  create and make visible the root component  */
-        let [ name, comp, state ] = options.ui()
+        const [ name, comp, state ] = options.ui()
         root.create(name, comp).state(state)
         latching.hook("boot-leave", "none")
     }
@@ -376,10 +376,10 @@ export default class Gemstone {
         latching.hook("shutdown-enter", "none")
 
         /*  determine root component  */
-        let root = cs("/")
+        const root = cs("/")
 
         /*  shutdown service layer  */
-        let sv = root.property("sv")
+        const sv = root.property("sv")
         if (typeof sv === "object" && typeof sv.shutdown === "function")
             await sv.shutdown()
 
