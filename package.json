@@ -49,7 +49,7 @@
         "jquery":                          "3.4.1",
         "jquery-stage":                    "1.1.14",
         "jquery.transit":                  "0.9.12",
-        "componentjs":                     "1.6.2",
+        "componentjs":                     "1.6.4",
         "componentjs-mvc":                 "1.0.7",
         "vue":                             "2.6.11",
         "vue-animate":                     "0.0.4",
