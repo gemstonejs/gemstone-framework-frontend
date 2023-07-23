@@ -46,7 +46,7 @@
         "normalize.css":                   "8.0.1",
         "animate.css":                     "3.7.2",
         "urijs":                           "1.19.2",
-        "jquery":                          "3.4.1",
+        "jquery":                          "3.5.0",
         "jquery-stage":                    "1.1.14",
         "jquery.transit":                  "0.9.12",
         "componentjs":                     "1.6.4",
